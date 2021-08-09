@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		606530F526C15C3D0071228E /* smoke.sks in Resources */ = {isa = PBXBuildFile; fileRef = 606530F426C15C3D0071228E /* smoke.sks */; };
+		606530FB26C168E10071228E /* gameOver.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 606530FA26C168E10071228E /* gameOver.m4a */; };
 		60C2F77C26BC535A00EB0E73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2F77B26BC535A00EB0E73 /* AppDelegate.swift */; };
 		60C2F77E26BC535A00EB0E73 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 60C2F77D26BC535A00EB0E73 /* GameScene.sks */; };
 		60C2F78226BC535A00EB0E73 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60C2F78126BC535A00EB0E73 /* GameScene.swift */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		606530F426C15C3D0071228E /* smoke.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = smoke.sks; sourceTree = "<group>"; };
+		606530FA26C168E10071228E /* gameOver.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = gameOver.m4a; sourceTree = "<group>"; };
 		60C2F77826BC535A00EB0E73 /* project14-Whack-a-Penguin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "project14-Whack-a-Penguin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C2F77B26BC535A00EB0E73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60C2F77D26BC535A00EB0E73 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -65,11 +69,13 @@
 				60C2F77B26BC535A00EB0E73 /* AppDelegate.swift */,
 				60C2F77D26BC535A00EB0E73 /* GameScene.sks */,
 				60C2F78126BC535A00EB0E73 /* GameScene.swift */,
+				606530F426C15C3D0071228E /* smoke.sks */,
 				60C2F79426BC63F800EB0E73 /* WhackSlot.swift */,
 				60C2F78326BC535A00EB0E73 /* GameViewController.swift */,
 				60C2F78526BC535A00EB0E73 /* Main.storyboard */,
 				60C2F78826BC535B00EB0E73 /* Assets.xcassets */,
 				60C2F78A26BC535B00EB0E73 /* Info.plist */,
+				606530FA26C168E10071228E /* gameOver.m4a */,
 				60C2F79126BC549F00EB0E73 /* whack.caf */,
 				60C2F79026BC549E00EB0E73 /* whackBad.caf */,
 			);
@@ -134,6 +140,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				60C2F78726BC535A00EB0E73 /* Main.storyboard in Resources */,
+				606530FB26C168E10071228E /* gameOver.m4a in Resources */,
+				606530F526C15C3D0071228E /* smoke.sks in Resources */,
 				60C2F79326BC549F00EB0E73 /* whack.caf in Resources */,
 				60C2F79226BC549F00EB0E73 /* whackBad.caf in Resources */,
 				60C2F77E26BC535A00EB0E73 /* GameScene.sks in Resources */,

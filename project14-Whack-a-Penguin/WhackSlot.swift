@@ -9,23 +9,31 @@ import UIKit
 import SpriteKit
 
 class WhackSlot: SKNode {
+    
+    let goodPenguin = "penguinGood"
+    let goodNode = "charFriend"
+    let badNode = "charEnemy"
+    let badPenguin = "penguinEvil"
+    let smokeEffect = "smoke.sks"
+    let holeImage = "whackHole"
+    let holeMask = "whackMask"
+    
     var charNode: SKSpriteNode!
     var isVisible = false
     var isHit = false
     
-    
     func configure(at position: CGPoint) {
         self.position = position
         
-        let sprite = SKSpriteNode(imageNamed: "whackHole")
+        let sprite = SKSpriteNode(imageNamed: holeImage)
         addChild(sprite)
         
         let cropNode = SKCropNode()
         cropNode.position = CGPoint(x: 0, y: 15)
         cropNode.zPosition = 1
-        cropNode.maskNode = SKSpriteNode(imageNamed: "whackMask")
+        cropNode.maskNode = SKSpriteNode(imageNamed: holeMask)
         
-        charNode = SKSpriteNode(imageNamed: "penguinGood")
+        charNode = SKSpriteNode(imageNamed: goodPenguin)
         charNode.position = CGPoint(x: 0, y: -90)
         cropNode.addChild(charNode)
         
@@ -42,17 +50,16 @@ class WhackSlot: SKNode {
         isHit = false
         
         if Int.random(in: 0...2) == 0 {
-            charNode.texture = SKTexture(imageNamed: "penguinGood")
-            charNode.name = "charFriend"
+            charNode.texture = SKTexture(imageNamed: goodPenguin)
+            charNode.name = goodNode
         } else {
-            charNode.texture = SKTexture(imageNamed: "penguinEvil")
-            charNode.name = "charEnemy"
+            charNode.texture = SKTexture(imageNamed: badPenguin)
+            charNode.name = badNode
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + (hideTime * 3.5)) {
         [weak self] in
-            guard let self = self else { return }
-            self.hidePenguin()
+            self?.hidePenguin()
         }
     }
     func hidePenguin() {
@@ -64,11 +71,16 @@ class WhackSlot: SKNode {
     
     func hit() {
         isHit = true
-        
+        guard let smokeEffect = SKEmitterNode(fileNamed: smokeEffect) else { return }
+        smokeEffect.zPosition = 1
+        addChild(smokeEffect)
         let delay = SKAction.wait(forDuration: 0.25)
         let hide = SKAction.moveBy(x: 0, y: -80, duration: 0.5)
         let notVisible = SKAction.run { [weak self] in self?.isVisible = false }
         let sequence = SKAction.sequence([delay, hide, notVisible])
         charNode.run(sequence)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            smokeEffect.removeFromParent()
+        }
     }
 }

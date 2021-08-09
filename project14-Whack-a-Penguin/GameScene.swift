@@ -57,6 +57,7 @@ class GameScene: SKScene {
             if !whackSlot.isVisible { continue }
             if whackSlot.isHit { continue }
             whackSlot.hit()
+   
             
             if node.name == "charFriend" {
                 // they shouldn't have whacked this penguin
@@ -93,6 +94,14 @@ class GameScene: SKScene {
             gameOver.position = CGPoint(x: 512, y: 384)
             gameOver.zPosition = 1
             addChild(gameOver)
+            let totalScore = SKLabelNode (fontNamed: "Chalkduster")
+            totalScore.text = gameScore.text
+            totalScore.position = CGPoint(x: 380, y: 300)
+            totalScore.zPosition = 1
+            totalScore.horizontalAlignmentMode = .left
+            totalScore.fontSize = 50
+            addChild(totalScore)
+            run(SKAction.playSoundFileNamed("gameOver.m4a", waitForCompletion: false))
             return
         }
         popupTime *= 0.991
@@ -110,8 +119,7 @@ class GameScene: SKScene {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             [weak self] in
-            guard let self = self else { return }
-            self.creatEnemy()
+            self?.creatEnemy()
         }
     }
 }
